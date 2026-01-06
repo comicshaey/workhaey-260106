@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="hero">
+    <h1>고주무관 개인용 업무 보조 웹사이트</h1>
+    <p class="muted">
+      일 좀 덜 힘들게 해보자
+    </p>
+    <div class="hero-actions">
+      <a class="btn" href="/modules">기능 목록</a>
+      <a class="btn btn-ghost" href="/modules/social-insurance">사회보험료 엑셀 생성기</a>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h3>회계·지출</h3>
+      <p class="muted">회계말 체크리스트/템플릿/정산 보조</p>
+    </div>
+    <div class="card">
+      <h3>인사·급여·복무</h3>
+      <p class="muted">사회보험/연차/수당/복무 문구 자동화</p>
+    </div>
+    <div class="card">
+      <h3>문서·기록</h3>
+      <p class="muted">업무 로그 → 인수인계 패키지</p>
+    </div>
+  </section>
+{% endblock %}

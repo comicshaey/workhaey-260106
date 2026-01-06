@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="page-head">
+    <div>
+      <h1>처리 결과</h1>
+      <p class="muted">{{ message }}</p>
+    </div>
+    <a class="btn btn-ghost" href="/modules/social-insurance">뒤로</a>
+  </div>
+
+  <div class="card">
+    {% if ok and download_url %}
+      <a class="btn" href="{{ download_url }}">엑셀 다운로드</a>
+      <p class="muted" style="margin-top:10px;">다운로드가 끝나면 서버 임시파일은 즉시 정리됩니다.</p>
+    {% else %}
+      <p class="bad">실패: {{ message }}</p>
+    {% endif %}
+  </div>
+{% endblock %}

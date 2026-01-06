@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>eduworkhaey 업무보조 포털</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <script defer src="/static/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">eduworkhaey</a>
+      <nav class="nav">
+        <a href="/">홈</a>
+        <a href="/modules">업무보조 기능</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span class="muted">내부업무 보조 도구 · 개인정보 최소보관 원칙</span>
+    </div>
+  </footer>
+</body>
+</html>

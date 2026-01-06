@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="page-head">
+    <div>
+      <h1>사회보험료 고지내역 PDF → 엑셀 변환</h1>
+      <p class="muted">
+        근로자(국민연금/건강·요양/고용/산재), 노무제공자(고용/산재)를 통합하여
+        RAW + 구분별 시트로 생성합니다.
+      </p>
+    </div>
+    <a class="btn btn-ghost" href="/modules">목록</a>
+  </div>
+
+  <div class="card">
+    <h3>업로드</h3>
+    <p class="muted">있는 것만 올려도 됩니다. 최소 1개 PDF는 필요합니다.</p>
+
+    <form class="form" action="/modules/social-insurance/generate" method="post" enctype="multipart/form-data">
+      <div class="form-grid">
+        <label class="field">
+          <span>근로자 국민연금 PDF</span>
+          <input type="file" name="pension" accept="application/pdf" />
+        </label>
+
+        <label class="field">
+          <span>근로자 건강보험(요양 포함) PDF</span>
+          <input type="file" name="health" accept="application/pdf" />
+        </label>
+
+        <label class="field">
+          <span>근로자 고용보험 PDF</span>
+          <input type="file" name="emp_worker" accept="application/pdf" />
+        </label>
+
+        <label class="field">
+          <span>근로자 산재보험 PDF</span>
+          <input type="file" name="ia_worker" accept="application/pdf" />
+        </label>
+
+        <label class="field">
+          <span>노무제공자(방과후) 고용보험 PDF</span>
+          <input type="file" name="emp_labor" accept="application/pdf" />
+        </label>
+
+        <label class="field">
+          <span>노무제공자(방과후) 산재보험 PDF</span>
+          <input type="file" name="ia_labor" accept="application/pdf" />
+        </label>
+      </div>
+
+      <div class="actions">
+        <button class="btn" type="submit">엑셀 생성</button>
+        <span class="muted">다운로드 완료 후 임시파일은 자동 삭제됩니다.</span>
+      </div>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3>출력 시트 구성</h3>
+    <ul class="bullets">
+      <li><b>RAW_통합입력</b>: 원자료 + 구분</li>
+      <li><b>근로자4대</b>, <b>산재만(교육공무직)</b>, <b>방과후(노무제공자)</b>: 구분별 자동 분리</li>
+      <li><b>요약</b>: 구분별 집계</li>
+    </ul>
+  </div>
+{% endblock %}
